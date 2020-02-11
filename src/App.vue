@@ -3,14 +3,15 @@
     <TestVoice />
     <ToggleMenu @toggleMenu="toggleMenu" />
     <el-container>
-      <transition
-          enter-active-class="animated fadeInLeft"
-          leave-active-class="animated fadeOutLeft"
-        >
+      <!-- <transition
+        mode="out-in"
+        enter-active-class="animated fadeInLeft"
+        leave-active-class="animated fadeOutLeft"
+      > -->
         <el-aside v-if="show">
           <Side />
         </el-aside>
-      </transition>
+      <!-- </transition> -->
       <el-main>
         <transition
           mode="out-in"

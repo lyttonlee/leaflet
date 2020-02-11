@@ -13,7 +13,7 @@ export default {
   methods: {
     toggleMenu () {
       this.isShowMenu = !this.isShowMenu
-      console.log(this.isShowMenu)
+      // console.log(this.isShowMenu)
       this.$emit('toggleMenu', this.isShowMenu)
     }
   }

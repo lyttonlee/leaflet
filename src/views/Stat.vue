@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import echarts from 'echarts'
+// import echarts from 'echarts'
 export default {
   methods: {
     createChart () {
@@ -22,54 +22,6 @@ export default {
     }
   },
   mounted () {
-    const option = {
-      textStyle: {
-        color: '#999'
-      },
-      grid: {
-        left: 50,
-        right: 30
-      },
-      dataset: {
-        dimensions: ['product', 'count', 'score'],
-        source: [{
-          'product': 'Matcha Latte',
-          'count': 823,
-          'score': 95.8
-        },
-        {
-          'product': 'Milk Tea',
-          'count': 235,
-          'score': 81.4
-        },
-        {
-          'product': 'Cheese Cocoa',
-          'count': 1042,
-          'score': 91.2
-        },
-        {
-          'product': 'Walnut Brownie',
-          'count': 988,
-          'score': 76.9
-        }
-        ]
-      },
-      xAxis: {
-        // type: 'category',
-        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      },
-      // yAxis: {
-      //   type: 'value'
-      // },
-      series: [{
-        // data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: 'bar',
-      },
-      // { type: 'bar' }
-      ]
-    }
-    this.chart = echarts.init(document.getElementById('stat'))
-    this.chart.setOption(option)
   }
 }
 

@@ -1,9 +1,9 @@
 <template>
   <div class="page">
-    <div v-if="true" class="page-title">
+    <!-- <div v-if="true" class="page-title">
       {{$route.name}}
       <ShowTime />
-    </div>
+    </div> -->
     <div class="layout">
       <div class="item item-row-1-3">
         <h2>今日入荷车辆: 18</h2>
@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import ShowTime from '@/components/showTime'
+// import ShowTime from '@/components/showTime'
 import echart from 'echarts'
 import bus from '@/bus/bus'
 import { baseChartOption } from '../config/chartConfig'
@@ -31,7 +31,7 @@ export default {
     return {}
   },
   components: {
-    ShowTime
+    // ShowTime
   },
   mounted () {
     const legend = []
@@ -43,13 +43,15 @@ export default {
     const repairNum = echart.init(document.getElementById('repair-num-chart'))
     const repairedPercentChart = echart.init(document.getElementById('repaired-percent-chart'))
     repairNum.setOption({
-      // title: {
-      //   text: '当日在库在修出荷趋势图',
-      //   textStyle: {
-      //     color: '#999'
-      //   },
-      //   textAlign: 'center',
-      // },
+      title: {
+        text: '当日在库在修出荷趋势图',
+        textStyle: {
+          color: '#999'
+        },
+        // textAlign: 'center',
+        left: '30%',
+        top: 10,
+      },
       tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -156,6 +158,9 @@ export default {
       ]
     })
     const customRepairedOption = {
+      title: {
+        text: 'pie chart'
+      },
       tooltip: {
         trigger: 'item',
         formatter: '{a} <br/>{b} : {c} ({d}%)'
@@ -209,8 +214,8 @@ export default {
     }
 
     .layout {
-      height: 85%;
-      // margin: 20px;
+      height: 95%;
+      margin-top: 20px;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: repeat(4, 1fr);

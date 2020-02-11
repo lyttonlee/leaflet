@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Map',
+    name: '地图数据',
     component: Home,
     meta: {
       auth: true,
@@ -68,6 +68,16 @@ const routes = [
     path: '/stat',
     name: '数据统计',
     component: () => import(/* webpackChunkName: "about" */ '../views/Stat.vue'),
+    meta: {
+      auth: true,
+      icon: 'zx-tongji1',
+      role: ['admin']
+    }
+  },
+  {
+    path: '/car',
+    name: '车辆列表',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Car.vue'),
     meta: {
       auth: true,
       icon: 'zx-tongji1',

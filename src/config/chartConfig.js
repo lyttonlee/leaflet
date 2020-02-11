@@ -3,9 +3,11 @@ const backgroundColor = '#6a7985'
 export const baseChartOption = {
   title: {
     textStyle: {
-      color: textColor
+      color: '#999'
     },
-    textAlign: 'center',
+    // textAlign: 'center',
+    left: '30%',
+    top: 10,
   },
   tooltip: {
     trigger: 'axis',
