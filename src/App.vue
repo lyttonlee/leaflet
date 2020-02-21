@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <TestVoice />
+    <div class="select" @click="showSelect">
+      选择产线(仅为PC时显示)
+    </div>
     <ToggleMenu @toggleMenu="toggleMenu" />
+    <SelectLine ref="selectLine" />
     <el-container>
       <!-- <transition
         mode="out-in"
@@ -29,6 +33,7 @@
 import TestVoice from '@/components/TestVoice'
 import Side from '@/components/Side'
 import ToggleMenu from '@/components/ToggleMenu'
+import SelectLine from './components/SelectLine'
 import bus from '@/bus/bus'
 export default {
   data () {
@@ -39,13 +44,18 @@ export default {
   components: {
     TestVoice,
     Side,
-    ToggleMenu
+    ToggleMenu,
+    SelectLine
   },
   methods: {
     toggleMenu (isShow) {
       console.log(isShow)
       this.show = isShow
       bus.$emit('menuSizeChanged', isShow)
+    },
+    showSelect () {
+      console.log('show')
+      this.$refs['selectLine'].visible = true
     }
   },
   mounted () {
@@ -63,6 +73,16 @@ export default {
   text-align: center;
   color: @font-color;
   // background: #eee;
+  .select {
+    position: fixed;
+    right: 30px;
+    bottom: 60px;
+    width: 100px;
+    height: 60px;
+    background: rgba(12, 10, 10, 0.719);
+    cursor: pointer;
+    z-index: 1100;
+  }
   .el-container {
     width: 100vw;
     height: 100vh;
