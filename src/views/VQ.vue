@@ -5,7 +5,7 @@
       <ShowTime />
     </div> -->
     <div class="layout">
-      <div class="item item-row-1-3">
+      <div class="item">
         <div class="overview">
           <div class="overview-item">
             <h3>四小时出荷率</h3>
@@ -40,7 +40,7 @@
         <h2>昨日班后在库车辆: 7</h2> -->
       </div>
       <div class="item item-row-1-3 item-col-2-4">地图</div>
-      <div class="item item-col-1-4 item-row-3-5" id="repair-num-chart">总返修在库出荷趋势图(小时)</div>
+      <div class="item" id="repair-num-chart">总返修在库出荷趋势图(小时)</div>
       <div class="item">
         <h4>告警列表</h4>
         <el-carousel indicator-position="none" height="100px" arrow="never">
@@ -63,7 +63,8 @@
           </el-carousel-item>
         </el-carousel>
       </div>
-      <div class="item item-row-3-5" id="repaired-percent-chart">出荷率时间比例图</div>
+      <div class="item item-col-1-3" id="repaired-percent-chart">出荷率时间比例图</div>
+      <div class="item item-col-3-5">chart</div>
     </div>
   </div>
 </template>
@@ -83,7 +84,7 @@ export default {
     const legend = []
     for (let i = 0; i < 24; i++) {
       if (i % 3 === 0) {
-        legend.push(i.toString() + '点')
+        legend.push(i.toString() + '日')
       }
     }
     const repairNum = echart.init(document.getElementById('repair-num-chart'))
@@ -122,14 +123,14 @@ export default {
           color: '#999'
         }
       },
-      toolbox: {
-        feature: {
-          // saveAsImage: {}
-          magicType: {
-            type: ['line', 'bar', 'tiled']
-          }
-        }
-      },
+      // toolbox: {
+      //   feature: {
+      //     // saveAsImage: {}
+      //     magicType: {
+      //       type: ['line', 'bar', 'tiled']
+      //     }
+      //   }
+      // },
       grid: {
         left: '15%',
         right: '4%',
@@ -149,12 +150,6 @@ export default {
         }
       ],
       series: [
-        // {
-        //   name: 'AF涂装在库车辆',
-        //   type: 'line',
-        //   // areaStyle: {},
-        //   data: [120, 132, 101, 134, 90, 230, 210]
-        // },
         {
           name: '入荷车辆',
           type: 'line',
@@ -167,39 +162,21 @@ export default {
             }
           },
         },
-        // {
-        //   name: '出荷车辆',
-        //   type: 'line',
-        //   // areaStyle: {},
-        //   data: [0, 3, 2, 5, 17, 20],
-        //   label: {
-        //     normal: {
-        //       show: true,
-        //       position: 'top'
-        //     }
-        //   },
-        //   lineStyle: {
-        //     color: 'blue'
-        //   }
-        // },
-        // {
-        //   name: 'PQ总装在库车辆',
-        //   type: 'line',
-        //   // areaStyle: {},
-        //   data: [320, 332, 301, 334, 390, 330, 320]
-        // },
-        // {
-        //   name: 'WE焊装在库车辆',
-        //   type: 'line',
-        //   // areaStyle: {},
-        //   data: [120, 32, 351, 34, 90, 320, 220]
-        // },
-        // {
-        //   name: 'PA零件在库车辆',
-        //   type: 'line',
-        //   // areaStyle: {},
-        //   data: [320, 332, 301, 334, 390, 330, 320]
-        // },
+        {
+          name: '出荷车辆',
+          type: 'line',
+          // areaStyle: {},
+          data: [0, 3, 2, 5, 17, 20],
+          label: {
+            normal: {
+              show: true,
+              position: 'top'
+            }
+          },
+          lineStyle: {
+            color: 'blue'
+          }
+        },
         {
           name: '在库车辆',
           type: 'line',
@@ -286,11 +263,12 @@ export default {
     }
 
     .layout {
-      height: 95%;
+      height: 90%;
       margin-top: 20px;
+      box-sizing: border-box;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: repeat(4, 1fr);
+      grid-template-rows: 40% 30% 30%;
       grid-gap: 20px;
       grid-auto-flow: column dense;
 

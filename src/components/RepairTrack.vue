@@ -7,13 +7,21 @@
     :show-close="false"
   >
     <div class="track">
-      <div class="map-track">
+      <!-- <div class="map-track">
         <h2>地图和轨迹</h2>
-      </div>
+      </div> -->
       <div class="info">
-        <h2>车辆基本信息</h2>
-        <h2>告警信息</h2>
-        <h2>返修流转信息</h2>
+        <el-tabs>
+          <el-tab-pane label="基本信息" name="online">
+            基本信息
+          </el-tab-pane>
+          <el-tab-pane label="告警信息" name="his">
+            告警信息列表
+          </el-tab-pane>
+          <el-tab-pane label="维修流转" name="no">
+            维修流转
+          </el-tab-pane>
+        </el-tabs>
       </div>
     </div>
     <div slot="footer">

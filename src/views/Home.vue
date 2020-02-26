@@ -13,12 +13,19 @@
       <h5>点击地图上的车辆和列表的效果应一致,效果类似于轨迹记录</h5>
       <el-input size="small" placeholder="请输入要查询的车辆"></el-input>
       <el-tabs>
-        <el-tab-pane label="目前在库" name="online">
+        <el-tab-pane label="所有" name="online">
           <template v-for="item in 8">
-            <div class="item" @click="showCar" :key="item">car-{{item}}</div>
+            <div class="item" @click="showCar" :key="item">
+              {{`本田XX车 --- 状态(是否告警) --- 维修时长(3小时)`}}
+            </div>
           </template>
         </el-tab-pane>
-        <el-tab-pane label="历史车辆" name="his">
+        <el-tab-pane label="告警" name="his">
+          <template v-for="item in 10">
+            <div class="item" @click="showCar" :key="item">历史车辆-{{item}}</div>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane label="未告警" name="no">
           <template v-for="item in 10">
             <div class="item" @click="showCar" :key="item">历史车辆-{{item}}</div>
           </template>
